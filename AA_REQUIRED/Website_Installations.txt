@@ -1,0 +1,48 @@
+STEP 1: DOWNLOAD ALL REQUIRED EXTENSIONS
+SQLite
+Code Runner
+
+STEP 2: INSTALL PYTHON 3.10.11 or 3.7^
+2.1 Open CMD and type: python --version
+2.2 Check if a version of python above 3.7 is installed.
+2.3 If not or none, download and install Python
+
+
+STEP 3: CREATE A VIRTUAL ENVIRONMENT
+3.1 Open terminal
+3.2 cd path\to\project
+3.3 TYPE: python -m venv venv
+3.4 TYPE: source venv/Scripts/activate
+3.5 TYPE: pip install -r AA_REQUIRED/requirements.txt
+
+STEP 4: RUN PROJECT
+4.1 python app.py
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Python library installation:
+BASH pip freeze > requirements.txt
+
+Start command on Render:
+BASH gunicorn app:app
+
+How to open SQLite database: 
+1. Type ">SQLite: Open Database" on VSC
+2. Select Database
+3. SQLITE EXPLORER panel should appear on the bottom left part of VSC
+
+How to manually Update SQLite database:
+1. Type ">SQLite: Refresh Databases" on VSC

@@ -1,0 +1,48 @@
+MARCH 19 11:59
+
+cement
+sand
+gravel
+Hollow Blocks
+
+Luzon CALABARZON (Batangas City)
+Visayas Cebu (Capital)
+NCR Metro Manila
+Mindanao Davao City
+
+Welcome > Pili location > How many floors (1, 2, 3)
+>ask if 1st and 2nd floor is the same (regular)
+
+1. Foundation)
+
+Display the total cost on the right side
+Total cost should add (x5%)
+
+2. Columns
+3. Beams
+4. Slab
+
+ (4 types of  (L, W, t), Masonry, 3 types of Steel
+
+CONCRETE
+User Input (Length, Width, thickness)
+
+Sand 
+Cement
+Gravel
+
+MASONRY
+Sand
+Cement
+Hollow Blocks
+
+STEEL
+steel = 10mm, 12mm, 16mm
+
+Site should display:
+m^3 Sand
+m^3 Gravel
+Cement
+No. Hollow Blocks
+no. of 6m Steel
+

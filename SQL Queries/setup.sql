@@ -1,0 +1,28 @@
+-- DELETE REGION TABLE
+DROP TABLE IF EXISTS regions;
+-- DELETE MATERIALS TABLE
+DROP TABLE IF EXISTS materials;
+-- DELETE MATERIALS PRICES TABLE
+DROP TABLE IF EXISTS material_prices;
+
+-- CREATE REGION TABLE
+CREATE TABLE regions (
+    id INTEGER PRIMARY KEY,
+    region_name TEXT NOT NULL
+);
+
+-- CREATE MATERIALS TABLE
+CREATE TABLE materials (
+    id INTEGER PRIMARY KEY,
+    material_name TEXT NOT NULL
+);
+
+-- CREATE MATERIALS PRICES TABLE
+CREATE TABLE material_prices (
+    id INTEGER PRIMARY KEY,
+    region_id INTEGER,
+    material_id INTEGER,
+    price REAL NOT NULL,
+    FOREIGN KEY (region_id) REFERENCES regions(id),
+    FOREIGN KEY (material_id) REFERENCES materials(id)
+);

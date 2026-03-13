@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Esti-Mate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!--<link rel="stylesheet" href="style.css">-->
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="menubar">
+                <p>Esti-Mate</p>
+            </div>
+        </header>
+        <div class="house-image-container">
+            <p class="big-message">Cost Estimate Calculator</p>
+            <p class="small-message">A web-based tool that quickly calculates and estimates project costs, helping users
+                plan budgets accurately, compare options, and make informed financial decisions efficiently.</p>
+
+        </div>
+        <div class="select-container">
+            <div class="dropdown">
+                <select>
+                    <option value="">Select Region</option>
+                    <option value="luzon">Luzon</option>
+                    <option value="ncr">NCR</option>
+                    <option value="visayas">Visayas</option>
+                    <option value="mindanao">Mindanao</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
