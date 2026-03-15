@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Esti-Mate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!--<link rel="stylesheet" href="style.css">-->
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="menubar">
+                <p>Esti-Mate</p>
+            </div>
+        </header>
+        <div class="house-image-container">
+            <p class="big-message">Cost Estimate Calculator</p>
+            <p class="small-message">A web-based tool that quickly calculates and estimates project costs, helping users
+                plan budgets accurately, compare options, and make informed financial decisions efficiently.</p>
+
+        </div>
+        <div class="foundation-container">
+            <!-- SELECTOR CARD -->
+            <div class="part-section">
+                <div class="selector-card">
+                    <div class="selector-row">
+                        <!-- Region Dropdown -->
+                        <div class="selector-group">
+                            <label for="region-select" class="selector-label">Select Region</label>
+                            <div class="custom-select-wrapper">
+                                <select id="region-select" class="custom-select">
+                                    <option value="">-- Choose Region --</option>
+                                    <option value="luzon" selected>Luzon</option>
+                                    <option value="ncr">NCR</option>
+                                    <option value="visayas">Visayas</option>
+                                    <option value="mindanao">Mindanao</option>
+                                </select>
+                                <span class="select-arrow">▼</span>
+                            </div>
+                        </div>
+
+                        <!-- Floors Dropdown -->
+                        <div class="selector-group">
+                            <label for="floors-select" class="selector-label">Select no. of Floors</label>
+                            <div class="custom-select-wrapper">
+                                <select id="floors-select" class="custom-select">
+                                    <option value="">-- Choose Floors --</option>
+                                    <option value="1" selected>1-Storey</option>
+                                    <option value="2">2-Storey</option>
+                                    <option value="3">3-Storey</option>
+                                </select>
+                                <span class="select-arrow">▼</span>
+                            </div>
+                        </div>
+
+                        <!-- Selection Display -->
+                        <div class="selection-display">
+                            <div class="selection-item">
+                                <span class="selection-value" id="selected-region-display">Luzon</span>
+                                <span class="selection-label">Location</span>
+                            </div>
+                            <div class="selection-divider"></div>
+                            <div class="selection-item">
+                                <span class="selection-value" id="selected-floors-display">1-Storey</span>
+                                <span class="selection-label">Floors</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PART 1: FOUNDATION -->
+            <div class="part-section">
+                <h1 class="part-title">PART 1: FOUNDATION</h1>
+
+                <!-- CONCRETE Section -->
+                <div class="material-card">
+                    <div class="foundation-concrete-title">
+                        <span>CONCRETE</span>
+                    </div>
+
+                    <!-- (A) FOOTING DETAILS -->
+                    <div class="subsection-header">
+                        <span class="subsection-marker">(A)</span>
+                        <span class="subsection-title">FOOTING DETAILS</span>
+                        <div class="type-selector" data-group="foundation-concrete-footing">
+                            <span class="type-label">No. of Footing Types</span>
+                            <div class="type-number">
+                                <span class="number-badge" id="foundation-concrete-footing-count">3</span>
+                                <div class="arrow-group">
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('foundation-concrete-footing', 1)">▲</button>
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('foundation-concrete-footing', -1)">▼</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="footing-table" id="foundation-concrete-footing-table">
+                            <thead>
+                                <tr>
+                                    <!-- Headers will be populated by JavaScript -->
+                                </tr>
+                            </thead>
+                            <tbody id="foundation-concrete-footing-body"></tbody>
+                        </table>
+                    </div>
+
+                    <!-- (B) COLUMN DETAILS -->
+                    <div class="subsection-header">
+                        <span class="subsection-marker">(B)</span>
+                        <span class="subsection-title">COLUMN DETAILS</span>
+                        <div class="type-selector" data-group="foundation-concrete-column">
+                            <span class="type-label">No. of Column Types</span>
+                            <div class="type-number">
+                                <span class="number-badge" id="foundation-concrete-column-count">3</span>
+                                <div class="arrow-group">
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('foundation-concrete-column', 1)">▲</button>
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('foundation-concrete-column', -1)">▼</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="footing-table" id="foundation-concrete-column-table">
+                            <thead>
+                                <tr>
+                                    <!-- Headers will be populated by JavaScript -->
+                                </tr>
+                            </thead>
+                            <tbody id="foundation-concrete-column-body"></tbody>
+                        </table>
+                    </div>
+
+                    <!-- (C) BEAM DETAILS -->
+                    <div class="subsection-header">
+                        <span class="subsection-marker">(C)</span>
+                        <span class="subsection-title">BEAM DETAILS</span>
+                        <div class="type-selector" data-group="foundation-concrete-beam">
+                            <span class="type-label">No. of Beam Types</span>
+                            <div class="type-number">
+                                <span class="number-badge" id="foundation-concrete-beam-count">3</span>
+                                <div class="arrow-group">
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('foundation-concrete-beam', 1)">▲</button>
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('foundation-concrete-beam', -1)">▼</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="footing-table" id="foundation-concrete-beam-table">
+                            <thead>
+                                <tr>
+                                    <!-- Headers will be populated by JavaScript -->
+                                </tr>
+                            </thead>
+                            <tbody id="foundation-concrete-beam-body"></tbody>
+                        </table>
+                    </div>
+
+                    <!-- (D) SLAB DETAILS -->
+                    <div class="subsection-header">
+                        <span class="subsection-marker">(D)</span>
+                        <span class="subsection-title">SLAB DETAILS</span>
+                        <div class="type-selector" data-group="foundation-concrete-slab">
+                            <span class="type-label">No. of Slab Types</span>
+                            <div class="type-number">
+                                <span class="number-badge" id="foundation-concrete-slab-count">4</span>
+                                <div class="arrow-group">
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('foundation-concrete-slab', 1)">▲</button>
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('foundation-concrete-slab', -1)">▼</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="footing-table" id="foundation-concrete-slab-table">
+                            <thead>
+                                <tr>
+                                    <!-- Headers will be populated by JavaScript -->
+                                </tr>
+                            </thead>
+                            <tbody id="foundation-concrete-slab-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- MASONRY Section -->
+                <div class="material-card">
+                    <div class="foundation-masonry-title">
+                        <span>MASONRY</span>
+                    </div>
+
+                    <!-- (M) WALL DETAILS -->
+                    <div class="subsection-header">
+                        <span class="subsection-marker">(M)</span>
+                        <span class="subsection-title">WALL DETAILS</span>
+                        <div class="type-selector" data-group="foundation-masonry-wall">
+                            <span class="type-label">No. of Wall Types</span>
+                            <div class="type-number">
+                                <span class="number-badge" id="foundation-masonry-wall-count">4</span>
+                                <div class="arrow-group">
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('foundation-masonry-wall', 1)">▲</button>
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('foundation-masonry-wall', -1)">▼</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="footing-table" id="foundation-masonry-wall-table">
+                            <thead>
+                                <tr>
+                                    <!-- Headers will be populated by JavaScript -->
+                                </tr>
+                            </thead>
+                            <tbody id="foundation-masonry-wall-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- STEEL Section -->
+                <div class="material-card">
+                    <div class="foundation-steel-title">
+                        <span>STEEL</span>
+                    </div>
+
+                    <!-- (A) FOOTING DETAILS -->
+                    <div class="subsection-header">
+                        <span class="subsection-marker">(A)</span>
+                        <span class="subsection-title">FOOTING DETAILS</span>
+                        <div class="type-selector" data-group="foundation-steel-footing">
+                            <span class="type-label">No. of Footing Types</span>
+                            <div class="type-number">
+                                <span class="number-badge" id="foundation-steel-footing-count">3</span>
+                                <div class="arrow-group">
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('foundation-steel-footing', 1)">▲</button>
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('foundation-steel-footing', -1)">▼</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="footing-table" id="foundation-steel-footing-table">
+                            <thead>
+                                <tr>
+                                    <!-- Headers will be populated by JavaScript -->
+                                </tr>
+                            </thead>
+                            <tbody id="foundation-steel-footing-body"></tbody>
+                        </table>
+                    </div>
+
+                    <!-- (B) COLUMN DETAILS -->
+                    <div class="subsection-header">
+                        <span class="subsection-marker">(B)</span>
+                        <span class="subsection-title">COLUMN DETAILS</span>
+                        <div class="type-selector" data-group="foundation-steel-column">
+                            <span class="type-label">No. of Column Types</span>
+                            <div class="type-number">
+                                <span class="number-badge" id="foundation-steel-column-count">3</span>
+                                <div class="arrow-group">
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('foundation-steel-column', 1)">▲</button>
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('foundation-steel-column', -1)">▼</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="footing-table" id="foundation-steel-column-table">
+                            <thead>
+                                <tr>
+                                    <!-- Headers will be populated by JavaScript -->
+                                </tr>
+                            </thead>
+                            <tbody id="foundation-steel-column-body"></tbody>
+                        </table>
+                    </div>
+
+                    <!-- (C) BEAM DETAILS -->
+                    <div class="subsection-header">
+                        <span class="subsection-marker">(C)</span>
+                        <span class="subsection-title">BEAM DETAILS</span>
+                        <div class="type-selector" data-group="foundation-steel-beam">
+                            <span class="type-label">No. of Beam Types</span>
+                            <div class="type-number">
+                                <span class="number-badge" id="foundation-steel-beam-count">3</span>
+                                <div class="arrow-group">
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('foundation-steel-beam', 1)">▲</button>
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('foundation-steel-beam', -1)">▼</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="footing-table" id="foundation-steel-beam-table">
+                            <thead>
+                                <tr>
+                                    <!-- Headers will be populated by JavaScript -->
+                                </tr>
+                            </thead>
+                            <tbody id="foundation-steel-beam-body"></tbody>
+                        </table>
+                    </div>
+
+                    <!-- (D) SLAB DETAILS -->
+                    <div class="subsection-header">
+                        <span class="subsection-marker">(D)</span>
+                        <span class="subsection-title">SLAB DETAILS</span>
+                        <div class="type-selector" data-group="foundation-steel-slab">
+                            <span class="type-label">No. of Slab Types</span>
+                            <div class="type-number">
+                                <span class="number-badge" id="foundation-steel-slab-count">4</span>
+                                <div class="arrow-group">
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('foundation-steel-slab', 1)">▲</button>
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('foundation-steel-slab', -1)">▼</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="footing-table" id="foundation-steel-slab-table">
+                            <thead>
+                                <tr>
+                                    <!-- Headers will be populated by JavaScript -->
+                                </tr>
+                            </thead>
+                            <tbody id="foundation-steel-slab-body"></tbody>
+                        </table>
+                    </div>
+
+                    <!-- (E) WALL DETAILS - NEW -->
+                    <div class="subsection-header">
+                        <span class="subsection-marker">(E)</span>
+                        <span class="subsection-title">WALL DETAILS</span>
+                        <div class="type-selector" data-group="foundation-steel-wall">
+                            <span class="type-label">No. of Wall Types</span>
+                            <div class="type-number">
+                                <span class="number-badge" id="foundation-steel-wall-count">4</span>
+                                <div class="arrow-group">
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('foundation-steel-wall', 1)">▲</button>
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('foundation-steel-wall', -1)">▼</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="footing-table" id="foundation-steel-wall-table">
+                            <thead>
+                                <tr>
+                                    <!-- Headers will be populated by JavaScript -->
+                                </tr>
+                            </thead>
+                            <tbody id="foundation-steel-wall-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PART 2: PER FLOOR -->
+            <div class="part-section">
+                <h1 class="part-title">PART 2: PER FLOOR</h1>
+
+                <!-- CONCRETE Section -->
+                <div class="material-card">
+                    <div class="foundation-concrete-title">
+                        <span>CONCRETE</span>
+                    </div>
+
+                    <!-- (A) COLUMN DETAILS -->
+                    <div class="subsection-header">
+                        <span class="subsection-marker">(A)</span>
+                        <span class="subsection-title">COLUMN DETAILS</span>
+                        <div class="type-selector" data-group="floor-concrete-column">
+                            <span class="type-label">No. of Column Types</span>
+                            <div class="type-number">
+                                <span class="number-badge" id="floor-concrete-column-count">3</span>
+                                <div class="arrow-group">
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('floor-concrete-column', 1)">▲</button>
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('floor-concrete-column', -1)">▼</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="footing-table" id="floor-concrete-column-table">
+                            <thead>
+                                <tr>
+                                    <!-- Headers will be populated by JavaScript -->
+                                </tr>
+                            </thead>
+                            <tbody id="floor-concrete-column-body"></tbody>
+                        </table>
+                    </div>
+
+                    <!-- (B) BEAM DETAILS -->
+                    <div class="subsection-header">
+                        <span class="subsection-marker">(B)</span>
+                        <span class="subsection-title">BEAM DETAILS</span>
+                        <div class="type-selector" data-group="floor-concrete-beam">
+                            <span class="type-label">No. of Beam Types</span>
+                            <div class="type-number">
+                                <span class="number-badge" id="floor-concrete-beam-count">3</span>
+                                <div class="arrow-group">
+                                    <button class="arrow-btn" onclick="updateTable('floor-concrete-beam', 1)">▲</button>
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('floor-concrete-beam', -1)">▼</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="footing-table" id="floor-concrete-beam-table">
+                            <thead>
+                                <tr>
+                                    <!-- Headers will be populated by JavaScript -->
+                                </tr>
+                            </thead>
+                            <tbody id="floor-concrete-beam-body"></tbody>
+                        </table>
+                    </div>
+
+                    <!-- (C) SLAB DETAILS -->
+                    <div class="subsection-header">
+                        <span class="subsection-marker">(C)</span>
+                        <span class="subsection-title">SLAB DETAILS</span>
+                        <div class="type-selector" data-group="floor-concrete-slab">
+                            <span class="type-label">No. of Slab Types</span>
+                            <div class="type-number">
+                                <span class="number-badge" id="floor-concrete-slab-count">4</span>
+                                <div class="arrow-group">
+                                    <button class="arrow-btn" onclick="updateTable('floor-concrete-slab', 1)">▲</button>
+                                    <button class="arrow-btn"
+                                        onclick="updateTable('floor-concrete-slab', -1)">▼</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="footing-table" id="floor-concrete-slab-table">
+                            <thead>
+                                <tr>
+                                    <!-- Headers will be populated by JavaScript -->
+                                </tr>
+                            </thead>
+                            <tbody id="floor-concrete-slab-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- MASONRY Section -->
+                <div class="material-card">
+                    <div class="foundation-masonry-title">
+                        <span>MASONRY</span>
+                    </div>
+
+                    <!-- (M) WALL DETAILS -->
+                    <div class="subsection-header">
+                        <span class="subsection-marker">(M)</span>
+                        <span class="subsection-title">WALL DETAILS</span>
+                        <div class="type-selector" data-group="floor-masonry-wall">
+                            <span class="type-label">No. of Wall Types</span>
+                            <div class="type-number">
+                                <span class="number-badge" id="floor-masonry-wall-count">4</span>
+                                <div class="arrow-group">
+                                    <button class="arrow-btn" onclick="updateTable('floor-masonry-wall', 1)">▲</button>
+                                    <button class="arrow-btn" onclick="updateTable('floor-masonry-wall', -1)">▼</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="footing-table" id="floor-masonry-wall-table">
+                            <thead>
+                                <tr>
+                                    <!-- Headers will be populated by JavaScript -->
+                                </tr>
+                            </thead>
+                            <tbody id="floor-masonry-wall-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- STEEL Section -->
+                <div class="material-card">
+                    <div class="foundation-steel-title">
+                        <span>STEEL</span>
+                    </div>
+
+                    <!-- (A) COLUMN DETAILS -->
+                    <div class="subsection-header">
+                        <span class="subsection-marker">(A)</span>
+                        <span class="subsection-title">COLUMN DETAILS</span>
+                        <div class="type-selector" data-group="floor-steel-column">
+                            <span class="type-label">No. of Column Types</span>
+                            <div class="type-number">
+                                <span class="number-badge" id="floor-steel-column-count">3</span>
+                                <div class="arrow-group">
+                                    <button class="arrow-btn" onclick="updateTable('floor-steel-column', 1)">▲</button>
+                                    <button class="arrow-btn" onclick="updateTable('floor-steel-column', -1)">▼</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="footing-table" id="floor-steel-column-table">
+                            <thead>
+                                <tr>
+                                    <!-- Headers will be populated by JavaScript -->
+                                </tr>
+                            </thead>
+                            <tbody id="floor-steel-column-body"></tbody>
+                        </table>
+                    </div>
+
+                    <!-- (B) BEAM DETAILS -->
+                    <div class="subsection-header">
+                        <span class="subsection-marker">(B)</span>
+                        <span class="subsection-title">BEAM DETAILS</span>
+                        <div class="type-selector" data-group="floor-steel-beam">
+                            <span class="type-label">No. of Beam Types</span>
+                            <div class="type-number">
+                                <span class="number-badge" id="floor-steel-beam-count">3</span>
+                                <div class="arrow-group">
+                                    <button class="arrow-btn" onclick="updateTable('floor-steel-beam', 1)">▲</button>
+                                    <button class="arrow-btn" onclick="updateTable('floor-steel-beam', -1)">▼</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="footing-table" id="floor-steel-beam-table">
+                            <thead>
+                                <tr>
+                                    <!-- Headers will be populated by JavaScript -->
+                                </tr>
+                            </thead>
+                            <tbody id="floor-steel-beam-body"></tbody>
+                        </table>
+                    </div>
+
+                    <!-- (C) SLAB DETAILS -->
+                    <div class="subsection-header">
+                        <span class="subsection-marker">(C)</span>
+                        <span class="subsection-title">SLAB DETAILS</span>
+                        <div class="type-selector" data-group="floor-steel-slab">
+                            <span class="type-label">No. of Slab Types</span>
+                            <div class="type-number">
+                                <span class="number-badge" id="floor-steel-slab-count">4</span>
+                                <div class="arrow-group">
+                                    <button class="arrow-btn" onclick="updateTable('floor-steel-slab', 1)">▲</button>
+                                    <button class="arrow-btn" onclick="updateTable('floor-steel-slab', -1)">▼</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="footing-table" id="floor-steel-slab-table">
+                            <thead>
+                                <tr>
+                                    <!-- Headers will be populated by JavaScript -->
+                                </tr>
+                            </thead>
+                            <tbody id="floor-steel-slab-body"></tbody>
+                        </table>
+                    </div>
+
+                    <!-- (D) WALL DETAILS -->
+                    <div class="subsection-header">
+                        <span class="subsection-marker">(D)</span>
+                        <span class="subsection-title">WALL DETAILS</span>
+                        <div class="type-selector" data-group="floor-steel-wall">
+                            <span class="type-label">No. of Wall Types</span>
+                            <div class="type-number">
+                                <span class="number-badge" id="floor-steel-wall-count">4</span>
+                                <div class="arrow-group">
+                                    <button class="arrow-btn" onclick="updateTable('floor-steel-wall', 1)">▲</button>
+                                    <button class="arrow-btn" onclick="updateTable('floor-steel-wall', -1)">▼</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="footing-table" id="floor-steel-wall-table">
+                            <thead>
+                                <tr>
+                                    <!-- Headers will be populated by JavaScript -->
+                                </tr>
+                            </thead>
+                            <tbody id="floor-steel-wall-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
