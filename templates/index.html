@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Esti-Mate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!--<link rel="stylesheet" href="style.css">-->
+</head>
+
+<body>
+    <!-- HEADER / MENUBAR -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="header-left">
+                <div class="logo-box">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" style="border-radius: 20px;"
+                        alt="Logo" class="logo">
+                </div>
+                <div class="team-name-box">
+                    <span class="team-name">Esti-Mate</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="home-btn" onclick="showPage('page1')">Home</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container">
+        <!-- PAGE 1: BLANK (YOU CAN EDIT THIS LATER) -->
+        <section id="page1" class="page active-page welcome-page">
+            <div class="house-background-container">
+                <div class="house-image-container">
+                    <p class="big-message">Esti-Mate: A Web-based Construction Quantity and Cost Calculator</p>
+                    <p class="small-message">A web-based construction calculator calibrated from Philippine construction
+                        standards. Esti-Mage delivers fast, accurate quantity and cost estimates through a simple,
+                        user-friendly interface, with location-based pricing for more reliable project planning.</p>
+
+                    <button class="start-btn" onclick="showPage('page2')">Get Started →</button>
+
+                </div>
+                <div class="about-goal-container">
+                    <!-- About Us Section -->
+                    <div class="about-us">
+                        <h2 class="about-us-title">About Us</h2>
+                        <p class="about-us-message">
+                            Welcome to Esti-Mate, a web-based construction quantity and cost calculator designed to
+                            simplify
+                            and enhance the planning process for construction projects. Our goal is to provide accurate,
+                            efficient, and user-friendly tools that help professionals, students, and project planners
+                            make
+                            informed decisions with confidence.
+                        </p>
+                    </div>
+
+                    <!-- Our Goal Section -->
+                    <div class="our-goal">
+                        <!-- Mission Pair -->
+                        <div class="goal-pair">
+                            <div class="goal-title mission-title">Our Mission</div>
+                            <div class="goal-description mission-description">
+                                At Esti-Mate, we aim to streamline the estimation process by reducing manual
+                                calculations
+                                and minimizing errors. We believe that reliable data and intuitive technology can
+                                significantly improve productivity and project outcomes in the construction industry.
+                            </div>
+                        </div>
+
+                        <!-- Vision Pair -->
+                        <div class="goal-pair">
+                            <div class="goal-title vision-title">Our Vision</div>
+                            <div class="goal-description vision-description">
+                                We envision Esti-Mate becoming a trusted digital companion in the construction industry,
+                                empowering users with accurate tools and innovative solutions for smarter project
+                                planning.
+                            </div>
+                        </div>
+
+                        <!-- What We Do Pair -->
+                        <div class="goal-pair">
+                            <div class="goal-title what-we-do-title">What we do</div>
+                            <div class="goal-description what-we-do-description">
+                                Esti-Mate allows users to:
+                                <ul class="custom-list">
+                                    <li>Estimate project costs quickly and efficiently</li>
+                                    <li>Improve planning and budgeting accuracy</li>
+                                    <li>Save time through automation and a user-friendly interface</li>
+                                    <li>Calculate construction quantities with precision</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Team Section Container -->
+            <div class="team-container">
+                <!-- Supporting Text -->
+                <div class="supporting-text">
+                    "Esti-Mate is built to support your needs."
+                </div>
+
+                <!-- Team Title -->
+                <h2 class="team-title">Our Team</h2>
+
+                <!-- Team Grid -->
+                <div class="team-grid">
+                    <!-- Row 1 -->
+                    <div class="team-row">
+                        <!-- Person 1 -->
+                        <div class="team-member-color">
+                            <img src="{{ url_for('static', filename='images/M_Cabral.png') }}" alt="Aaron Joseph Cabral"
+                                class="team-member-image">
+                            <div class="team-member">
+                                <div class="member-name">Aaron Joseph<br>Cabral</div>
+                                <div class="member-designation">Engineer</div>
+                            </div>
+                        </div>
+                        <!-- Person 2 -->
+                        <div class="team-member-color">
+                            <img src="{{ url_for('static', filename='images/M_De-Castro.png') }}"
+                                alt="Kristine Angela De Castro" class="team-member-image">
+                            <div class="team-member">
+                                <div class="member-name">Kristine Angela<br>De Castro</div>
+                                <div class="member-designation">Designer</div>
+                            </div>
+                        </div>
+
+                        <!-- Person 3 -->
+                        <div class="team-member-color">
+                            <img src="{{ url_for('static', filename='images/M_Dimaano.png') }}"
+                                alt="Maureen Abby Gale Dimaano" class="team-member-image">
+                            <div class="team-member">
+                                <div class="member-name">Maureen Abby Gale Dimaano</div>
+                                <div class="member-designation">Business Planning</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="team-row">
+                        <!-- Person 4 -->
+                        <div class="team-member-color">
+                            <img src="{{ url_for('static', filename='images/M_Endaya.png') }}"
+                                alt="Jenz Hendrich Endaya" class="team-member-image">
+                            <div class="team-member">
+                                <div class="member-name">Jenz Hendrich Endaya</div>
+                                <div class="member-designation">Project Manager</div>
+                            </div>
+                        </div>
+
+                        <!-- Person 5 -->
+                        <div class="team-member-color">
+                            <img src="{{ url_for('static', filename='images/M_Fortes.png') }}" alt="John Paul Fortes"
+                                class="team-member-image">
+                            <div class="team-member">
+                                <div class="member-name">John Paul Fortes</div>
+                                <div class="member-designation">Sales/Marketing</div>
+                            </div>
+                        </div>
+                        <!-- Person 6 -->
+                        <div class="team-member-color">
+                            <img src="{{ url_for('static', filename='images/M_Ocong.png') }}" alt="Adrian Ocong"
+                                class="team-member-image">
+                            <div class="team-member">
+                                <div class="member-name">Adrian Ocong</div>
+                                <div class="member-designation">Engineering</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Description -->
+                <div class="team-description">
+                    We are a group of dedicated individuals with diverse expertise, working together to bring
+                    this
+                    solution to life.
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 2: SELECT REGION -->
+        <section id="page2" class="page">
+            <div class="page-header">
+                <h2>Select Region</h2>
+                <p>Choose your location to get started</p>
+            </div>
+            <div class="cards-container grid-2x2">
+                <div class="selection-card" onclick="selectRegion('Luzon')">
+                    <h3>LUZON</h3>
+                </div>
+                <div class="selection-card" onclick="selectRegion('NCR')">
+                    <h3>NCR</h3>
+                </div>
+                <div class="selection-card" onclick="selectRegion('Visayas')">
+                    <h3>VISAYAS</h3>
+                </div>
+                <div class="selection-card" onclick="selectRegion('Mindanao')">
+                    <h3>MINDANAO</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 3: CHOOSE MATERIAL TYPE -->
+        <section id="page3" class="page">
+            <div class="page-header">
+                <h2>Choose Material Type</h2>
+                <p>Select the type of construction material</p>
+            </div>
+            <div class="material-cards">
+                <div class="selection-card" onclick="selectMaterial('concrete')">
+                    <h3>CONCRETE</h3>
+                </div>
+                <div class="selection-card" onclick="selectMaterial('masonry')">
+                    <h3>MASONRY</h3>
+                </div>
+                <div class="selection-card" onclick="selectMaterial('steel')">
+                    <h3>STEEL</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 4: CHOOSE DETAIL TYPE -->
+        <section id="page4" class="page">
+            <div class="page-header">
+                <h2>Select Detail Type</h2>
+                <p id="material-indicator"></p>
+            </div>
+            <div id="detail-cards-container" class="cards-container">
+                <!-- Will be populated by JavaScript based on material -->
+            </div>
+        </section>
+
+        <!-- PAGE 5: DETAILS FORM -->
+        <section id="page5" class="page">
+            <div class="page-header">
+                <h2 id="detail-title">Fill in the Details</h2>
+                <p>Enter the required specifications</p>
+            </div>
+
+            <!-- DETAILS CARD - This will be populated by JavaScript -->
+            <div id="details-card-container">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="page-navigation">
+                <button class="nav-btn" onclick="showPage('page4')">← Back</button>
+                <button class="nav-btn" onclick="calculateResults()">Calculate</button>
+            </div>
+
+            <!-- Results will be dynamically added here by JavaScript -->
+        </section>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
